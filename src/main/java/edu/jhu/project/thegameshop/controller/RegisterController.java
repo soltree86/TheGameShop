@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.jhu.project.thegameshop.model.Role;
 import edu.jhu.project.thegameshop.model.User;
+import edu.jhu.project.thegameshop.service.RoleService;
 import edu.jhu.project.thegameshop.service.UserService;
 import edu.jhu.project.thegameshop.util.MD5HashingUtil;
 
@@ -25,6 +26,8 @@ public class RegisterController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private RoleService roleService;
 		
 	@RequestMapping(value="/register", method = RequestMethod.GET)
 	public String getRegistrationPage(Model m, HttpSession session) {
@@ -56,6 +59,9 @@ public class RegisterController {
 		
 		//assign role
 		Role role = new Role(user, "ROLE_USER");
+		
+		roleService.create(role);
+		
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(role);
 		user.setRoles(roles);

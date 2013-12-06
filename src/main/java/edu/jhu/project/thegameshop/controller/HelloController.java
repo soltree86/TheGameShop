@@ -6,7 +6,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.jhu.project.thegameshop.model.User;
 import edu.jhu.project.thegameshop.service.UserService;
 
 @Controller
@@ -19,9 +18,7 @@ public class HelloController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		
-		User user = userService.findById("admin@thegameshop.com");
-		
-		model.addAttribute("message", user.getFirstName());
+		model.addAttribute("message", "Hello World!");
 		return "hello";
 	}
 }

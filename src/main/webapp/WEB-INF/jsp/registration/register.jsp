@@ -40,30 +40,6 @@
 						<form:input path="lastName" type="text" class="form-control" id="userLastName" placeholder="Last Name"></form:input>
 						<form:errors path="lastName" class="text-danger"></form:errors>
 					</div>
-					<span>Optional : </span>
-					
-					<span>Billing Address </span>
-					<div class="form-group">
-						<label for="billingStreet1">Street 1</label> 
-						<form:input path="address1.street1" type="text" class="form-control" id="billingStreet1" placeholder="Street 1"></form:input>
-					</div>
-					<div class="form-group">
-						<label for="billingStreet2">Street 2</label> 
-						<form:input path="address1.street2" type="text" class="form-control" id="billingStreet2" placeholder="Street 2"></form:input>
-					</div>
-					<div class="form-group">
-						<label for="billingCity">City</label> 
-						<form:input path="address1.city" type="text" class="form-control" id="billingCity" placeholder="City"></form:input>
-					</div>
-					<div class="form-group">
-						<label for="billingState">State</label> 
-						<form:input path="address1.state" type="text" class="form-control" id="billingState" placeholder="State"></form:input>
-					</div>
-					<div class="form-group">
-						<label for="billingZip">Zip Code</label> 
-						<form:input path="address1.zip" type="text" class="form-control" id="billingZip" placeholder="Zip Code"></form:input>
-					</div>
-					
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form:form>
   			</c:otherwise>
