@@ -2,4 +2,5 @@ TheGameShop
 ===========
 
 TheGameShop
-asd
+
+Simple Spring MVC with Spring Data, Spring Security.
