@@ -21,7 +21,7 @@ public class Role implements Serializable {
 	private int roleId;
 	
 	@ManyToOne
-	@JoinColumn(name="UserName")
+	@JoinColumn(name="Username")
 	private User user;
 	
 	private String authority;

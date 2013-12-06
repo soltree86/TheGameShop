@@ -64,11 +64,11 @@ $(document).ready(function(){
             		<li><a href="#" title="PC Game">PC Game</a></li>
             	</ul>
             </li>
-            <li><a href="<spring:url value="/membership" htmlEscape="true" />">Membership</a>
+            <li><a href="<spring:url value="/register" htmlEscape="true" />">Membership</a>
             	<ul class="subnav">
             		<li><a href="<spring:url value="/register" htmlEscape="true" />" title="Registration">Registration</a></li>
             		<li><a href="#" title="My Account">My Account</a></li>
-            		<li><a href="#" title="Cancel Membership">Cancel Membership</a></li>
+            		<li><a href="<spring:url value="/cancelMemberShip" htmlEscape="true" />" title="Cancellation">Cancel Membership</a></li>
             	</ul>
             </li>
             <li><a href="<spring:url value="/contactus" htmlEscape="true" />">Contact Us</a>

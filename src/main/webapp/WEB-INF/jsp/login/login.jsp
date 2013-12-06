@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
-		<h1>${message}</h1>
+		<h1 class="text-danger">${message}</h1>
 		<form name='f' action="<c:url value='j_spring_security_check' />" method='POST' role="form">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Email address</label> 
