@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.jhu.project.thegameshop.model.Role;
 import edu.jhu.project.thegameshop.model.User;
-import edu.jhu.project.thegameshop.repository.UserRepository;
 import edu.jhu.project.thegameshop.service.RoleService;
 import edu.jhu.project.thegameshop.service.UserService;
 import edu.jhu.project.thegameshop.util.MD5HashingUtil;

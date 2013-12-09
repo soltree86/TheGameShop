@@ -6,10 +6,6 @@ import edu.jhu.project.thegameshop.exception.UserNotFound;
 import edu.jhu.project.thegameshop.model.User;
 
 public interface UserService {
-
-	
-	
-	
 	public User create(User user);
 	public User delete(String email) throws UserNotFound;
 	public List<User> findAll();

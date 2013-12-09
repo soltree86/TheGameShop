@@ -30,12 +30,9 @@ $(document).ready(function(){
 				<a href="<spring:url value="/login" htmlEscape="true" />">login</a>
 			</c:when>
 	        <c:otherwise>
-				${sessionScope.username} <a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />">logout</a>
+				Logged In As : ${sessionScope.username} <a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />">logout</a>
 			</c:otherwise>
     	</c:choose>
-	</div>
-	<div class="adminbar">
-		<a href="<spring:url value="/admin" htmlEscape="true" />">admin</a>
 	</div>
 	<div class="cartbar">
 		<a href="<spring:url value="/checkout" htmlEscape="true" />">checkout</a>
@@ -55,7 +52,13 @@ $(document).ready(function(){
             </li>
             <c:choose>
 		        <c:when test="${not empty sessionScope.role && sessionScope.role == 'ROLE_ADMIN'}">
-					<li><a href="<spring:url value="/admin" htmlEscape="true" />">Admin</a></li>
+					<li><a href="<spring:url value="/admin" htmlEscape="true" />">Admin</a>
+						<ul class="subnav">
+		            		<li><a href="<spring:url value="/admin/addProductPage" htmlEscape="true" />" title="Add Product">Add Product</a></li>
+		            		<li><a href="<spring:url value="/admin/editProduct" htmlEscape="true" />" title="Edit Product">Edit Product</a></li>
+		            		<li><a href="<spring:url value="/admin/deleteProduct" htmlEscape="true" />" title="Delete Product">Delete Product</a></li>
+		            	</ul>
+		            </li>
 				</c:when>
 	    	</c:choose>
             <li><a href="<spring:url value="/games" htmlEscape="true" />">Shop Games</a>

@@ -11,8 +11,6 @@
 <body>
 <div class="container">
     <jsp:include page="fragments/bodyHeader.jsp"/>
-    <spring:url value="/resources/images/bullet-arrow.png" htmlEscape="true" var="image"/>
-    <img src="${image}"/>
 	<h1>Message : ${message}</h1>
     <jsp:include page="fragments/footer.jsp"/>
 </div>
