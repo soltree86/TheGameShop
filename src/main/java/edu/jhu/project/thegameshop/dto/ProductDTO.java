@@ -32,8 +32,8 @@ public class ProductDTO {
 	
 	private MultipartFile file;
 	
-	@NotEmpty
-	private String category;
+	@Min(0) @Max(1)
+	private int category;
 	
 	@NotNull @Size(min=1, max=10) 
 	private List<String> genreList; 
@@ -85,10 +85,10 @@ public class ProductDTO {
 		this.file = file;
 	}
 
-	public String getCategory() {
+	public int getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
 	public List<String> getGenreList() {

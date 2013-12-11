@@ -93,3 +93,9 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 .text-danger {
 	color: #B94A48;
 }
+
+
+.productInfo {
+	height:150px;
+	padding: 15px 0px;
+}

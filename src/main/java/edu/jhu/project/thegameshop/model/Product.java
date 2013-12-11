@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 
 @Entity
 @Table(name = "product")
@@ -21,6 +24,7 @@ public class Product implements Serializable{
 	@GeneratedValue
 	private int productId;
 
+	@Digits(integer=6, fraction=2) @DecimalMax("1000.00") @DecimalMin("1.00")
 	private BigDecimal price;
 
 	@Lob
@@ -28,12 +32,13 @@ public class Product implements Serializable{
 
 	private int enabled;
 
-	@Lob
-	private byte[] image;
+	private String image;
 
 	private String name;
 
 	private int quantity;
+	
+	private int isConsole;
 
 	//bi-directional many-to-one association to Producttype
 	@OneToMany(mappedBy="product")
@@ -74,11 +79,11 @@ public class Product implements Serializable{
 		this.enabled = enabled;
 	}
 
-	public byte[] getImage() {
+	public String getImage() {
 		return this.image;
 	}
 
-	public void setImage(byte[] image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
@@ -120,4 +125,11 @@ public class Product implements Serializable{
 		return productType;
 	}
 
+	public int getIsConsole() {
+		return isConsole;
+	}
+
+	public void setIsConsole(int isConsole) {
+		this.isConsole = isConsole;
+	}
 }

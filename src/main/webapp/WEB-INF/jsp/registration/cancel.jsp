@@ -12,16 +12,16 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
-		<h1 class="text-danger">${message}</h1>
+		<h4 class="text-danger">${message}</h4> 
 		<spring:url value="/membershipCancellation" htmlEscape="true" var="cancelMembership"></spring:url>
 		<form:form name='f' action="${cancelMembership}" commandName="user" role="form">
 			<div class="form-group">
 				<label for="userEmail">Email address</label> 
-				<form:input path="username" type="email" class="form-control" id="userEmail" placeholder="Enter email"></form:input>
+				<form:input path="username" type="email" class="form-control" style="width:20%" id="userEmail" placeholder="Enter email"></form:input>
 			</div>
 			<div class="form-group">
 				<label for="userPassword">Password</label> 
-				<form:input path="password" type="password" class="form-control" id="userPassword" placeholder="Password"></form:input>
+				<form:input path="password" type="password" class="form-control" style="width:20%" id="userPassword" placeholder="Password"></form:input>
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form:form>

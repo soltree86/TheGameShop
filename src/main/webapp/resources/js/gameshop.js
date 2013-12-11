@@ -1,22 +1,31 @@
-$(document).ready(function(){
 
-	$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
-	
-	$("ul.topnav li span").click(function() { //When trigger is clicked...
-		
-		//Following events are applied to the subnav itself (moving subnav up and down)
-		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+			// Call a URL and pass two arguments
+			// Also pass a call back function
+			// See http://api.jquery.com/jQuery.post/
+			// See http://api.jquery.com/jQuery.ajax/
+			// You might find a warning in Firefox: Warning: Unexpected token in attribute selector: '!' 
+			// See http://bugs.jquery.com/ticket/7535
+			
 
-		$(this).parent().hover(function() {
-		}, function(){	
-			$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
-		});
-
-		//Following events are applied to the trigger (Hover events for the trigger)
-		}).hover(function() { 
-			$(this).addClass("subhover"); //On hover over, add class "subhover"
-		}, function(){	//On Hover Out
-			$(this).removeClass("subhover"); //On hover out, remove class "subhover"
-	});
-
-});
+//$("input:checked").each(function() {
+			//	genres.push($("input:checked").val());
+			//});
+			
+			//var json = {input : "hello"};
+			//[{"productId":3,
+			//	"price":25,
+			//	"description":"With the World of Warcraft Pre-Paid Game",
+			//	"enabled":1,
+			//	"image":"/resources/imageuploads/3/wow.jpg",
+			//	"name":"World of Warcraft",
+			//	"quantity":500,
+			//	"typeString":null}]
+			
+			//$.post("/TheGameShop/admin/createProductList", 
+			//		{ 'input':  'hihi' },
+			//		function(data){
+			//			// data contains the result
+			//			// Assign result to the sum id
+			//			$("#result").replaceWith('<span id="result">'+ data + '</span>');
+			//		});
+			

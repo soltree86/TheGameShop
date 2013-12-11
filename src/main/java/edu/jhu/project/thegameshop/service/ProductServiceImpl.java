@@ -65,4 +65,15 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.findOne(productId);
 	}
 
+	public List<Product> findByLikeName(String name) {
+		String param = "%" + name + "%";
+		return productRepository.findByLikeProductName(param);
+	}
+
+	public List<Product> findByLikeType(String type, boolean isConsole) {
+		
+		String param = "%" + type + "%"; 
+		
+		return isConsole ? productRepository.findConsoleByLikeType(param) : productRepository.findPCByLikeType(param);
+	}
 }

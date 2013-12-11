@@ -9,7 +9,7 @@ PetClinic :: a Spring Framework demonstration
     <title>TheGameShop :: Web Application for JHU Project</title>
 
 
-    <spring:url value="/webjars/bootstrap/2.3.0/css/bootstrap.min.css" var="bootstrapCss"/>
+    <spring:url value="/webjars/bootstrap/3.0.3/css/bootstrap.min.css" var="bootstrapCss"/>
     <link href="${bootstrapCss}" rel="stylesheet"/>
 
     <spring:url value="/resources/css/style.css" var="gameshopCss"/>
@@ -28,6 +28,12 @@ PetClinic :: a Spring Framework demonstration
     <!-- jquery-ui.css file is not that big so we can afford to load it -->
     <spring:url value="/webjars/jquery-ui/1.10.3/themes/base/jquery-ui.css" var="jQueryUiCss"/>
     <link href="${jQueryUiCss}" rel="stylesheet"></link>
+    
+	<spring:url value="/resources/js/bootstrap.min.js" var="bootstrapJs"/>
+    <script src="${bootstrapJs}"></script>
+    
+    <spring:url value="/resources/js/gameshop.js" var="gameshopJs"/>
+    <script src="${gameshopJs}"></script>
 </head>
 
 

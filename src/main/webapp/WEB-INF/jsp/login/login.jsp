@@ -16,15 +16,14 @@
 		<form name='f' action="<c:url value='j_spring_security_check' />" method='POST' role="form">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Email address</label> 
-				<input name='j_username' type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-			</div>
+				<input name='j_username' type="email" class="form-control" style="width:20%" id="exampleInputEmail1" placeholder="Enter email">
+			</div> 
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label> 
-				<input name='j_password' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				<input name='j_password' type="password" class="form-control" style="width:20%" id="exampleInputPassword1" placeholder="Password">
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
-
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

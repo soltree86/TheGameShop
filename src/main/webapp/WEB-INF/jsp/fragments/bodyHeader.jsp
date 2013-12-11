@@ -5,24 +5,26 @@
 <!-- 
 <spring:url value="/resources/images/banner-graphic.png" var="banner"/>
 <img src="${banner}"/>
- --> 
+
 
 <script>
 $(document).ready(function(){
 
 	//$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
 	
-	$("ul.topnav li").hover(function() { //When trigger is clicked...
+	$("li.dropdown a.dropdown-toggle").hover(function() { //When trigger is clicked...
 		//Following events are applied to the subnav itself (moving subnav up and down)
-		$(this).find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+		$(this).find("ul.dropdown-menu").slideDown('fast').show(); //Drop down the subnav on click
 		//$(this).addClass("subhover"); //On hover over, add class "subhover"
 	}, function(){	
 		//$(this).removeClass("subhover"); //On hover out, remove class "subhover"
-		$(this).find("ul.subnav").slideUp('fast'); //When the mouse hovers out of the subnav, move it back up
+		$(this).find("ul.dropdown-menu").slideUp('fast'); //When the mouse hovers out of the subnav, move it back up
 	});
 
 });
 </script>
+ --> 
+
 <div class="topbar">
 	<div class="loginbar">
 		<c:choose>
@@ -39,48 +41,87 @@ $(document).ready(function(){
 	</div>
 </div>
 
-<div class="navbar" style="width: 601px;">
-    <div class="navbar-inner">
-        <ul class="topnav">
-            <li><a href="<spring:url value="/" htmlEscape="true" />"><i class="icon-home icon-white"></i>Home</a></li>
-            <li><a href="<spring:url value="/company" htmlEscape="true" />">TheGameShop</a>
-            	<ul class="subnav">
-            		<li><a href="#" title="Sub Nav Link">About Us</a></li>
-            		<li><a href="#" title="Sub Nav Link">Our Vision</a></li>
-            		<li><a href="#" title="Sub Nav Link">What's New</a></li>
-            	</ul>
-            </li>
-            <c:choose>
-		        <c:when test="${not empty sessionScope.role && sessionScope.role == 'ROLE_ADMIN'}">
-					<li><a href="<spring:url value="/admin" htmlEscape="true" />">Admin</a>
-						<ul class="subnav">
-		            		<li><a href="<spring:url value="/admin/addProductPage" htmlEscape="true" />" title="Add Product">Add Product</a></li>
-		            		<li><a href="<spring:url value="/admin/editProduct" htmlEscape="true" />" title="Edit Product">Edit Product</a></li>
-		            		<li><a href="<spring:url value="/admin/deleteProduct" htmlEscape="true" />" title="Delete Product">Delete Product</a></li>
-		            	</ul>
-		            </li>
+
+<nav class="navbar navbar-inverse" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+			data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand"
+			href="<spring:url value="/" htmlEscape="true" />">TheGameShop</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li class="dropdown"><a
+				href="<spring:url value="/company" htmlEscape="true" />"
+				class="dropdown-toggle" data-toggle="dropdown">Company<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Our Vision</a></li>
+					<li><a href="#">What's New</a></li>
+				</ul></li>
+			<c:choose>
+				<c:when
+					test="${not empty sessionScope.role && sessionScope.role == 'ROLE_ADMIN'}">
+					<li class="dropdown"><a
+						href="<spring:url value="/admin" htmlEscape="true" />"
+						class="dropdown-toggle" data-toggle="dropdown">Admin<b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a
+								href="<spring:url value="/admin/addProductPage" htmlEscape="true" />"
+								title="Add Product">Add Product</a></li>
+							<li><a
+								href="<spring:url value="/admin/productList" htmlEscape="true" />"
+								title="Edit Product">Edit Product</a></li>
+							<li><a
+								href="<spring:url value="/admin/deleteProduct" htmlEscape="true" />"
+								title="Delete Product">Delete Product</a></li>
+						</ul></li>
 				</c:when>
-	    	</c:choose>
-            <li><a href="<spring:url value="/games" htmlEscape="true" />">Shop Games</a>
-            	<ul class="subnav">
-            		<li><a href="#" title="Console Game">Console Game</a></li>
-            		<li><a href="#" title="PC Game">PC Game</a></li>
-            	</ul>
-            </li>
-            <li><a href="<spring:url value="/register" htmlEscape="true" />">Membership</a>
-            	<ul class="subnav">
-            		<li><a href="<spring:url value="/register" htmlEscape="true" />" title="Registration">Registration</a></li>
-            		<li><a href="#" title="My Account">My Account</a></li>
-            		<li><a href="<spring:url value="/cancelMemberShip" htmlEscape="true" />" title="Cancellation">Cancel Membership</a></li>
-            	</ul>
-            </li>
-            <li><a href="<spring:url value="/contactus" htmlEscape="true" />">Contact Us</a>
-            	<ul class="subnav">
-            		<li><a href="#" title="Store Location">Store Location</a></li>
-            		<li><a href="#" title="Q & A">Q And A</a></li>
-            	</ul>
-            </li>
-        </ul>
-    </div>
-</div>
-	
+			</c:choose>
+			<li class="dropdown">
+				<a href="<spring:url value="/register" htmlEscape="true" />" class="dropdown-toggle" data-toggle="dropdown">Membership<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a
+						href="<spring:url value="/register" htmlEscape="true" />"
+						title="Registration">Registration</a></li>
+					<li><a href="#" title="My Account">My Account</a></li>
+					<li><a
+						href="<spring:url value="/cancelMemberShip" htmlEscape="true" />"
+						title="Cancellation">Cancel Membership</a></li>
+				</ul></li>
+			<li class="dropdown"><a
+				href="<spring:url value="/shopGames" htmlEscape="true" />"
+				class="dropdown-toggle" data-toggle="dropdown">Games<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#" title="Console Game">Console Game</a></li>
+					<li><a href="#" title="PC Game">PC Game</a></li>
+				</ul></li>
+			<li class="dropdown"><a
+				href="<spring:url value="/contactus" htmlEscape="true" />"
+				class="dropdown-toggle" data-toggle="dropdown">Contact Us<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#" title="Store Location">Store Location</a></li>
+					<li><a href="#" title="Q & A">Q And A</a></li>
+				</ul></li>
+		</ul>
+		<!-- form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form> -->
+	</div>
+	<!-- /.navbar-collapse -->
+</nav>
+

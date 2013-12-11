@@ -11,4 +11,6 @@ public interface ProductService {
 	public List<Product> findAll();
 	public Product update(Product product) throws ProductNotFound;
 	public Product findById(int productId);
+	public List<Product> findByLikeName(String name);
+	public List<Product> findByLikeType(String type, boolean isConsole);
 }
