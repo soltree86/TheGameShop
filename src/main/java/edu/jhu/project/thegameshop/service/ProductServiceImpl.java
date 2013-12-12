@@ -50,7 +50,10 @@ public class ProductServiceImpl implements ProductService{
 		
 		updated.setDescription(product.getDescription());
 		updated.setEnabled(product.getEnabled());
-		updated.setImage(product.getImage());
+		
+		if(product.getImage() != null && !product.getImage().isEmpty())
+			updated.setImage(product.getImage());
+		
 		updated.setName(product.getName());
 		updated.setPrice(product.getPrice());
 		updated.setProductTypes(product.getProductTypes());
@@ -75,5 +78,13 @@ public class ProductServiceImpl implements ProductService{
 		String param = "%" + type + "%"; 
 		
 		return isConsole ? productRepository.findConsoleByLikeType(param) : productRepository.findPCByLikeType(param);
+	}
+
+	public List<Product> findByLikeTypeForCustomer(String type,
+			boolean isConsole) {
+
+		String param = "%" + type + "%"; 
+		
+		return isConsole ? productRepository.findConsoleByLikeTypeCustomer(param) : productRepository.findPCByLikeTypeCustomer(param);
 	}
 }

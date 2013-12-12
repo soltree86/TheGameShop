@@ -19,7 +19,7 @@ $(document).ready(function(){
 			genres.push($("select option:selected").text());
 			
 			$.ajax({  
-		        url: "/TheGameShop/admin/createProductList",  
+		        url: "/TheGameShop/shop/getProductList",  
 		        data: JSON.stringify(genres), 
 		        type: "POST",
 		        beforeSend: function(xhr) {  
@@ -29,14 +29,13 @@ $(document).ready(function(){
 		        success: function(data) {
 		        	//alert(data.length);
 		        	$.each(data, function(i, val){
-		        		productList += '<div class="productInfo"><div class="col-md-3"><img src="/TheGameShop<spring:url value="' + val.image + '" />" width="160px">';
-		        		productList += '</div><div class="col-md-6"><h4>' + val.name + '</h4><h5>Description</h5><h6>' + val.description + '</h6>';
-		        		productList += '</div><div class="col-md-2"><h4>Price : $' + val.price + '</h4>';
-		        		productList += '<a href="<spring:url value="/admin/editProductPage/' + val.productId + '" />" style="padding-bottom: 5px;">';
-		        		productList += '<button type="submit" class="btn btn-warning btn-sm">Edit Product</button></a> <br /><br />';
-		        		productList += '<a href="<spring:url value="/admin/deleteProduct/' + val.productId + '" />">';
-		        		productList += '<button type="submit" onClick="return confirm(\'Are you sure you want to delete ' + val.name + '?\')"';
-		        		productList += 'class="btn btn-danger btn-sm">Delete Product</button></a>';
+		        		productList += '<div class="productInfo"><div class="col-md-3"><a href="<spring:url value="/shop/itemDetail/' + val.productId + '" />" >';
+		        		productList += '<img src="/TheGameShop<spring:url value="' + val.image + '" />" width="160px"></a>';
+		        		productList += '</div><div class="col-md-6"><a href="<spring:url value="/shop/itemDetail/' + val.productId + '" />" >';
+		        		productList += '<h4>' + val.name + '</h4></a><h5>Description</h5><h6>' + val.description + '</h6>';
+		        		productList += '</div><div class="col-md-2"><h4>Price : $ ' + val.price + '</h4><br />';
+		        		productList += '<a href="<spring:url value="/shop/addToCart/' + val.productId + '" />" style="padding-bottom: 5px;">';
+		        		productList += '<button type="submit" onClick="return confirm(\'Do you want to add ' + val.name + ' to the Shopping Cart?\')" class="btn btn-warning btn-sm">Add To Cart</button></a> <br />';
 		        		productList += '</div></div><hr class="bs-docs-separator"/>';
 		        	});
 		        	

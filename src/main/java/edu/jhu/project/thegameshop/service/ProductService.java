@@ -13,4 +13,5 @@ public interface ProductService {
 	public Product findById(int productId);
 	public List<Product> findByLikeName(String name);
 	public List<Product> findByLikeType(String type, boolean isConsole);
+	public List<Product> findByLikeTypeForCustomer(String type, boolean isConsole);
 }

@@ -1,5 +1,4 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- 
@@ -57,15 +56,6 @@ $(document).ready(function(){
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li class="dropdown"><a
-				href="<spring:url value="/company" htmlEscape="true" />"
-				class="dropdown-toggle" data-toggle="dropdown">Company<b
-					class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">About Us</a></li>
-					<li><a href="#">Our Vision</a></li>
-					<li><a href="#">What's New</a></li>
-				</ul></li>
 			<c:choose>
 				<c:when
 					test="${not empty sessionScope.role && sessionScope.role == 'ROLE_ADMIN'}">
@@ -79,13 +69,20 @@ $(document).ready(function(){
 								title="Add Product">Add Product</a></li>
 							<li><a
 								href="<spring:url value="/admin/productList" htmlEscape="true" />"
-								title="Edit Product">Edit Product</a></li>
-							<li><a
-								href="<spring:url value="/admin/deleteProduct" htmlEscape="true" />"
-								title="Delete Product">Delete Product</a></li>
+								title="Edit/Delete Product">Edit/Delete Product</a></li>
 						</ul></li>
 				</c:when>
 			</c:choose>
+			<li><a href="<spring:url value="/shop" htmlEscape="true" />">Shop</a></li>
+			<li class="dropdown"><a
+				href="<spring:url value="/company" htmlEscape="true" />"
+				class="dropdown-toggle" data-toggle="dropdown">Company<b
+					class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Our Vision</a></li>
+					<li><a href="#">What's New</a></li>
+				</ul></li>			
 			<li class="dropdown">
 				<a href="<spring:url value="/register" htmlEscape="true" />" class="dropdown-toggle" data-toggle="dropdown">Membership<b
 					class="caret"></b></a>
@@ -97,14 +94,6 @@ $(document).ready(function(){
 					<li><a
 						href="<spring:url value="/cancelMemberShip" htmlEscape="true" />"
 						title="Cancellation">Cancel Membership</a></li>
-				</ul></li>
-			<li class="dropdown"><a
-				href="<spring:url value="/shopGames" htmlEscape="true" />"
-				class="dropdown-toggle" data-toggle="dropdown">Games<b
-					class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="#" title="Console Game">Console Game</a></li>
-					<li><a href="#" title="PC Game">PC Game</a></li>
 				</ul></li>
 			<li class="dropdown"><a
 				href="<spring:url value="/contactus" htmlEscape="true" />"

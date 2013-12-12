@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -13,6 +14,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "product")
@@ -41,7 +45,7 @@ public class Product implements Serializable{
 	private int isConsole;
 
 	//bi-directional many-to-one association to Producttype
-	@OneToMany(mappedBy="product")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="product")
 	private List<ProductType> productTypes;
 
 	public Product() {

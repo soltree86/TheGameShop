@@ -21,7 +21,34 @@ public class ProductConversionUtil {
 		product.setIsConsole(dto.getCategory());
 		product.setQuantity(dto.getQuantity());
 		
+		if(dto.getId() != 0) {
+			product.setProductId(dto.getId());
+		}
+		
 		return product;
+	}
+	
+	public static ProductDTO productToProductDTO(Product product) throws IOException {
+		
+		ProductDTO dto = new ProductDTO();
+		
+		dto.setName(product.getName());
+		dto.setDescription(product.getDescription());
+		dto.setEnabled(product.getEnabled());
+		dto.setPrice(product.getPrice());
+		dto.setCategory(product.getIsConsole());
+		dto.setQuantity(product.getQuantity());
+		dto.setId(product.getProductId());
+		
+		List<String> genreList = new ArrayList<String>();
+		
+		for(ProductType pt :product.getProductTypes()) {
+			genreList.add(pt.getDescription());
+		}
+		
+		dto.setGenreList(genreList);
+		
+		return dto;
 	}
 	
 	public static ProductJsonDTO productToJsonObject(Product product) {

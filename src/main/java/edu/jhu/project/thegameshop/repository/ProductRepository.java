@@ -22,4 +22,10 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
 	@Query("SELECT p FROM Product p JOIN p.productTypes pt WHERE p.isConsole = 0 and pt.description like :type")
 	public List<Product> findPCByLikeType(@Param("type") String type);
+	
+	@Query("SELECT p FROM Product p JOIN p.productTypes pt WHERE p.quantity > 0 and p.isConsole = 1 and pt.description like :type")
+	public List<Product> findConsoleByLikeTypeCustomer(@Param("type") String type);
+	
+	@Query("SELECT p FROM Product p JOIN p.productTypes pt WHERE p.quantity > 0 and p.isConsole = 0 and pt.description like :type")
+	public List<Product> findPCByLikeTypeCustomer(@Param("type") String type);
 }

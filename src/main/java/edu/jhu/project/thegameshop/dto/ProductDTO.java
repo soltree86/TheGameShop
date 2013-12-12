@@ -18,6 +18,8 @@ import edu.jhu.project.thegameshop.model.Product;
 
 public class ProductDTO {
 
+	private int id;
+	
 	@NotEmpty
 	private String name;
 	
@@ -40,7 +42,7 @@ public class ProductDTO {
 	
 	private int enabled = 1;
 	
-	private Product product;
+	private int numItems;
 	
 	public ProductDTO() {
 	}
@@ -106,13 +108,20 @@ public class ProductDTO {
 		this.enabled = enabled;
 	}
 
-	public Product getProduct() {
-		return product;
+	public int getId() {
+		return id;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setId(int id) {
+		this.id = id;
 	}
-	
-	
+
+	public int getNumItems() {
+		return numItems;
+	}
+
+	public void setNumItems(int numItems) {
+		this.numItems = numItems;
+	}
+
 }
