@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.jhu.project.thegameshop.dto.AddressDTO;
 import edu.jhu.project.thegameshop.dto.ProductDTO;
 import edu.jhu.project.thegameshop.dto.ProductJsonDTO;
+import edu.jhu.project.thegameshop.model.Address;
 import edu.jhu.project.thegameshop.model.Product;
 import edu.jhu.project.thegameshop.model.ProductType;
 
@@ -52,7 +54,7 @@ public class ProductConversionUtil {
 	}
 	
 	public static ProductJsonDTO productToJsonObject(Product product) {
-		return new ProductJsonDTO(product.getProductId(), product.getPrice().longValue(), product.getDescription(),
+		return new ProductJsonDTO(product.getProductId(), product.getPrice(), product.getDescription(),
 				product.getEnabled(), product.getImage(), product.getName(), product.getQuantity(),
 				product.getIsConsole());
 	}
@@ -65,6 +67,18 @@ public class ProductConversionUtil {
 		}
 		
 		return jsonList;
+	}
+	
+	public static Address addressDTOToAddress(AddressDTO addressDTO) {
+		Address address = new Address();
+		
+		address.setStreet1(addressDTO.getStreet1());
+		address.setStreet2(addressDTO.getStreet2());
+		address.setCity(addressDTO.getCity());
+		address.setState(addressDTO.getState());
+		address.setZip(addressDTO.getZip());
+		
+		return address;
 	}
 	
 }

@@ -17,7 +17,7 @@ public class Address implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer addressId;
+	private int addressId;
 
 	private String city;
 
@@ -30,6 +30,10 @@ public class Address implements Serializable {
 	private String zip;
 
 	//bi-directional many-to-one association to User
+	@OneToMany(mappedBy="address")
+	private List<Order> orders;
+
+	//bi-directional many-to-one association to User
 	@OneToMany(mappedBy="address1")
 	private List<User> users1;
 
@@ -40,12 +44,20 @@ public class Address implements Serializable {
 	public Address() {
 	}
 
-	public int getAddressId() {
-		return this.addressId;
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public void setAddressId(int addressId) {
 		this.addressId = addressId;
+	}
+
+	public int getAddressId() {
+		return this.addressId;
 	}
 
 	public String getCity() {

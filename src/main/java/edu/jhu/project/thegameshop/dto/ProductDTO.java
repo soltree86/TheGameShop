@@ -1,5 +1,6 @@
 package edu.jhu.project.thegameshop.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -14,9 +15,12 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
-import edu.jhu.project.thegameshop.model.Product;
+public class ProductDTO implements Serializable{
 
-public class ProductDTO {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private int id;
 	

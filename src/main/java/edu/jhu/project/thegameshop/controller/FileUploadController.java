@@ -1,10 +1,5 @@
 package edu.jhu.project.thegameshop.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +25,7 @@ public class FileUploadController {
 					Model map) {
 		
 		MultipartFile file = uploadForm.getFile();
-
+		file.getName();
 		return "hello";
 	}
 }

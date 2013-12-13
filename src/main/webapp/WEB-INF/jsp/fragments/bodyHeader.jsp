@@ -35,9 +35,6 @@ $(document).ready(function(){
 			</c:otherwise>
     	</c:choose>
 	</div>
-	<div class="cartbar">
-		<a href="<spring:url value="/checkout" htmlEscape="true" />">checkout</a>
-	</div>
 </div>
 
 
@@ -104,12 +101,9 @@ $(document).ready(function(){
 					<li><a href="#" title="Q & A">Q And A</a></li>
 				</ul></li>
 		</ul>
-		<!-- form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
-		</form> -->
+		<ul class="nav navbar-nav navbar-right">
+	      	<li><a href="<spring:url value="/shop/shoppingCart" htmlEscape="true" />">Shopping Cart</a></li>
+	    </ul>
 	</div>
 	<!-- /.navbar-collapse -->
 </nav>

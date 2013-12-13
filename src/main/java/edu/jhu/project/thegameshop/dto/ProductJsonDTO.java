@@ -1,9 +1,11 @@
 package edu.jhu.project.thegameshop.dto;
 
+import java.math.BigDecimal;
+
 public class ProductJsonDTO {
 	private int productId;
 
-	private long price;
+	private BigDecimal price;
 
 	private String description;
 
@@ -21,7 +23,7 @@ public class ProductJsonDTO {
 		
 	}
 	
-	public ProductJsonDTO(int productId, long price, String description,
+	public ProductJsonDTO(int productId, BigDecimal price, String description,
 			int enabled, String image, String name, int quantity,
 			int category) {
 		super();
@@ -43,11 +45,11 @@ public class ProductJsonDTO {
 		this.productId = productId;
 	}
 
-	public long getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

@@ -12,6 +12,7 @@
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
 		<h3>Product Detail</h3>
+		<h4 class="text-danger">${message}</h4>
 		<table>
 			<tr>
 				<td>

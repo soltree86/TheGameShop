@@ -33,7 +33,7 @@ $(document).ready(function(){
 		        		productList += '<img src="/TheGameShop<spring:url value="' + val.image + '" />" width="160px"></a>';
 		        		productList += '</div><div class="col-md-6"><a href="<spring:url value="/shop/itemDetail/' + val.productId + '" />" >';
 		        		productList += '<h4>' + val.name + '</h4></a><h5>Description</h5><h6>' + val.description + '</h6>';
-		        		productList += '</div><div class="col-md-2"><h4>Price : $ ' + val.price + '</h4><br />';
+		        		productList += '</div><div class="col-md-3"><h4>Price : $ ' + val.price + '</h4><br />';
 		        		productList += '<a href="<spring:url value="/shop/addToCart/' + val.productId + '" />" style="padding-bottom: 5px;">';
 		        		productList += '<button type="submit" onClick="return confirm(\'Do you want to add ' + val.name + ' to the Shopping Cart?\')" class="btn btn-warning btn-sm">Add To Cart</button></a> <br />';
 		        		productList += '</div></div><hr class="bs-docs-separator"/>';

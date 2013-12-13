@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import edu.jhu.project.thegameshop.model.Product;
-import edu.jhu.project.thegameshop.model.Role;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 

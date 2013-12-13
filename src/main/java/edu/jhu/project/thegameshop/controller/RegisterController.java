@@ -74,7 +74,6 @@ public class RegisterController {
 	
 	@RequestMapping(value="/cancelMemberShip", method = RequestMethod.GET)
 	public String getCancelationPage(Model m, HttpSession session) {
-		
 		m.addAttribute("user", new User());
 		m.addAttribute("message", "We need to verify the user credential again");
 		return "registration/cancel";
