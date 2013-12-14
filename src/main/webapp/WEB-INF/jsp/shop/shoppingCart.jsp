@@ -11,6 +11,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
+		<div class="content">
 		<h3>Shopping Cart</h3>
 		<h4 class="text-danger">${message}</h4>
 		<spring:url value="/shop/updateCart" var="updateCart"></spring:url>
@@ -52,7 +53,7 @@
 				<a href="${checkout}"><button type="submit" class="btn btn-success" >Check Out</button></a>
 			</c:when>
 		</c:choose>	
-		
+		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

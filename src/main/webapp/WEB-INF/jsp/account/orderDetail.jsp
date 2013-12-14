@@ -12,6 +12,7 @@
 <body>
 	<div class="container">
   		<jsp:include page="../fragments/bodyHeader.jsp" />
+  		<div class="content">
   		<h3>My Account</h3>
   		<div>
   			<h4>Order Detail</h4>
@@ -70,7 +71,7 @@
 				</tbody>
 			</table>
   		</div>
-  		
+  		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

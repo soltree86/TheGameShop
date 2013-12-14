@@ -11,6 +11,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
+		<div class="content">
 		<h3>Add Product</h3>
 		<h4 class="text-danger">${message}</h4>
 		<spring:url value="/admin/addProduct" htmlEscape="true" var="addProduct"/>
@@ -146,7 +147,7 @@
 			<br />
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form:form>
-		
+		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

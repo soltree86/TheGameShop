@@ -12,7 +12,8 @@
 <body>
 	<div class="container">
   		<jsp:include page="../fragments/bodyHeader.jsp" />
-  		
+  		<div class="content">
+  		<h3>Register Account</h3>
 		<c:choose>
   			<c:when test="${isLoggedIn}">
   				<h1>Please LogOut First to Register.</h1>
@@ -44,6 +45,7 @@
 				</form:form>
   			</c:otherwise>
   		</c:choose>
+  		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

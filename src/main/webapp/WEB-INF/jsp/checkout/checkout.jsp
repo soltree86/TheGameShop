@@ -28,6 +28,7 @@ function validateCreditCard() {
 <body>
 <div class="container">
     <jsp:include page="../fragments/bodyHeader.jsp"/>
+    <div class="content">
     <h3>Check Out</h3>
 	<table class="table table-bordered">
 		<thead>
@@ -197,7 +198,7 @@ function validateCreditCard() {
 			
 		<button type="submit" onclick="return validateCreditCard();" class="btn btn-default">Submit</button>
 	</form:form>
-	
+	</div>
     <jsp:include page="../fragments/footer.jsp"/>
 
 </div>

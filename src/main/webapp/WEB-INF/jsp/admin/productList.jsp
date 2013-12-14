@@ -27,19 +27,21 @@ $(document).ready(function(){
 		            xhr.setRequestHeader("Content-Type", "application/json");  
 		        },
 		        success: function(data) {
-		        	//alert(data.length);
-		        	$.each(data, function(i, val){
-		        		productList += '<div class="productInfo"><div class="col-md-3"><img src="/TheGameShop<spring:url value="' + val.image + '" />" width="160px">';
-		        		productList += '</div><div class="col-md-6"><h4>' + val.name + '</h4><h5>Description</h5><h6>' + val.description + '</h6>';
-		        		productList += '</div><div class="col-md-2"><h4>Price : $' + val.price + '</h4>';
-		        		productList += '<a href="<spring:url value="/admin/editProductPage/' + val.productId + '" />" style="padding-bottom: 5px;">';
-		        		productList += '<button type="submit" class="btn btn-warning btn-sm">Edit Product</button></a> <br /><br />';
-		        		productList += '<a href="<spring:url value="/admin/deleteProduct/' + val.productId + '" />">';
-		        		productList += '<button type="submit" onClick="return confirm(\'Are you sure you want to delete ' + val.name + '?\')"';
-		        		productList += 'class="btn btn-danger btn-sm">Delete Product</button></a>';
-		        		productList += '</div></div><hr class="bs-docs-separator"/>';
-		        	});
-		        	
+		        	if(JSON.stringify(data).length > 2) {
+			        	$.each(data, function(i, val){
+			        		productList += '<div class="productInfo"><div class="col-md-3"><img src="/TheGameShop<spring:url value="' + val.image + '" />" width="160px">';
+			        		productList += '</div><div class="col-md-6"><h4>' + val.name + '</h4><h5>Description</h5><h6>' + val.description + '</h6>';
+			        		productList += '</div><div class="col-md-2"><h4>Price : $' + val.price + '</h4>';
+			        		productList += '<a href="<spring:url value="/admin/editProductPage/' + val.productId + '" />" style="padding-bottom: 5px;">';
+			        		productList += '<button type="submit" class="btn btn-warning btn-sm">Edit Product</button></a> <br /><br />';
+			        		productList += '<a href="<spring:url value="/admin/deleteProduct/' + val.productId + '" />">';
+			        		productList += '<button type="submit" onClick="return confirm(\'Are you sure you want to delete ' + val.name + '?\')"';
+			        		productList += 'class="btn btn-danger btn-sm">Delete Product</button></a>';
+			        		productList += '</div></div><hr class="bs-docs-separator"/>';
+			        	});
+		        	} else {
+		        		productList += '<h3 class="text-danger">No Result</h3>';
+		        	}
 		        	productList += '</div>';
 		        	$("#productInfoList").replaceWith(productList);      
 		        }  
@@ -53,6 +55,7 @@ $(document).ready(function(){
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
+		<div class="content">
 		<h3>Product Search</h3>
 		<div class="row">
 			<div class="col-md-3" style="border-right:1px solid #000;height:500px">
@@ -100,6 +103,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 		<br />
+		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

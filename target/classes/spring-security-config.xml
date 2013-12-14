@@ -9,6 +9,8 @@
 	<http auto-config="true">
 		<intercept-url pattern="/checkout*" access="ROLE_USER,ROLE_ADMIN" />
 		<intercept-url pattern="/checkout/*" access="ROLE_USER,ROLE_ADMIN" />
+		<intercept-url pattern="/myAccount*" access="ROLE_USER,ROLE_ADMIN" />
+		<intercept-url pattern="/myAccount/*" access="ROLE_USER,ROLE_ADMIN" />
 		<intercept-url pattern="/admin*" access="ROLE_ADMIN" />
 		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
 		<form-login login-page="/login"  default-target-url="/"

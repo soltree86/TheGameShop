@@ -12,6 +12,7 @@
 <body>
 	<div class="container">
   		<jsp:include page="../fragments/bodyHeader.jsp" />
+  		<div class="content">
   		<h3>My Account</h3>
   		<div>
   			<h4>User Information</h4>
@@ -32,7 +33,7 @@
   		</div>
   		<div>
   			<h4>Order History</h4>
-  			<table>
+  			<table class="table table-bordered">
   				<thead>
   					<tr>
   						<th style="width:55%">Description</th>
@@ -42,19 +43,29 @@
   					</tr>
   				</thead>
   				<tbody>
+  					<c:choose>
+  						<c:when test="${empty orderList}">
+  							<tr>
+  								<td colspan="4">
+  									No Order History
+  								</td>
+  							</tr>
+  						</c:when>
+  					</c:choose>
   					<c:forEach var="order" items="${orderList}">
 					<tr>
 						<td><c:out value="${order.description}" /></td>
 						<td><c:out value="$ ${order.cost}" /></td>
 						<td><c:out value="${order.orderDt}" /></td>
-						<td><a href='<spring:url value="/history/${order.orderId}"></spring:url>'><button type="submit" class="btn btn-default" >View</button></a></td>
+						<td><a href='<spring:url value="/myAccount/history/${order.orderId}"></spring:url>'><button type="submit" class="btn btn-default" >View</button></a></td>
 					</tr>
 					</c:forEach>
   				</tbody>
   			</table>
   		</div>
-  		
+  		</div>
 		<jsp:include page="../fragments/footer.jsp" />
+		
 	</div>
 </body>
 

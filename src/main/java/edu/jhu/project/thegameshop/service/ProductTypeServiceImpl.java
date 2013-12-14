@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.jhu.project.thegameshop.exception.ProductNotFound;
-import edu.jhu.project.thegameshop.exception.UserNotFound;
 import edu.jhu.project.thegameshop.model.ProductType;
 import edu.jhu.project.thegameshop.repository.ProductTypeRepository;
 

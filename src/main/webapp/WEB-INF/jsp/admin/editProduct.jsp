@@ -11,6 +11,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
+		<div class="content">
 		<h3>Edit Product</h3>
 		<div class="col-md-5">
 		<img src="<spring:url value="${image}"/>" width="400px" height="350px" />
@@ -148,6 +149,7 @@
 				<br />
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form:form>
+			</div>
 		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>

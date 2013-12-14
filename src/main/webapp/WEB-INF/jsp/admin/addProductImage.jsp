@@ -11,6 +11,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
+		<div class="content">
 		<h3>Add Product</h3>
 		<spring:url value="/admin/addProductImage" htmlEscape="true" var="addProductImage"/>
 		<form:form  method="post" name='f' action="${addProductImage}" modelAttribute="uploadForm" enctype="multipart/form-data">
@@ -22,7 +23,7 @@
 			<br />
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form:form>
-		
+		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>

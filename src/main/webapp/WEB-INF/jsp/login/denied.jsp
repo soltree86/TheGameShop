@@ -11,7 +11,11 @@
 
 <body>
 	<div class="container">
-		<h1>Access Denied!!</h1>
+		<jsp:include page="../fragments/bodyHeader.jsp"/>
+			<div class="content">
+				<h1 class="text-danger">Access Denied!!</h1>
+			</div>
+		 <jsp:include page="../fragments/footer.jsp"/>
 	</div>
 </body>
 

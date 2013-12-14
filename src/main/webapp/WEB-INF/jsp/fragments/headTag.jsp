@@ -34,6 +34,10 @@ PetClinic :: a Spring Framework demonstration
     
     <spring:url value="/resources/js/gameshop.js" var="gameshopJs"/>
     <script src="${gameshopJs}"></script>
+    
+    
+	<link rel="shortcut icon" href="<spring:url value="/resources/images/favicon.ico" htmlEscape="true" />">
+    
 </head>
 
 

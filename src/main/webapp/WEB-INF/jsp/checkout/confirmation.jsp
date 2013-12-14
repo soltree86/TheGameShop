@@ -11,11 +11,12 @@
 <body>
 <div class="container">
     <jsp:include page="../fragments/bodyHeader.jsp"/>
+    <div class="content">
     <h3>Confirmation</h3>
 	
 	<h4>Order was successful!!</h4>
 	<h5>Confirmation Email has been Sent. Thank you for shopping at TheGameShop.</h5>
-	
+	</div>
     <jsp:include page="../fragments/footer.jsp"/>
 
 </div>

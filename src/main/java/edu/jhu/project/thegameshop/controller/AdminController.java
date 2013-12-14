@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -127,6 +128,7 @@ public class AdminController{
 	}
 	
 	
+	@Transactional(rollbackFor=Exception.class)
 	@RequestMapping(value="/editProduct", method = RequestMethod.POST)
 	public String editProduct(@Valid ProductDTO productDTO, BindingResult result, Model m, HttpServletRequest request) throws Exception {
 		if (result.hasErrors()) {

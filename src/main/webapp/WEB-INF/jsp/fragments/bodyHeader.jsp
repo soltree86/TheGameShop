@@ -1,37 +1,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- 
-<spring:url value="/resources/images/banner-graphic.png" var="banner"/>
-<img src="${banner}"/>
-
-
-<script>
-$(document).ready(function(){
-
-	//$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled (Adds empty span tag after ul.subnav*)
-	
-	$("li.dropdown a.dropdown-toggle").hover(function() { //When trigger is clicked...
-		//Following events are applied to the subnav itself (moving subnav up and down)
-		$(this).find("ul.dropdown-menu").slideDown('fast').show(); //Drop down the subnav on click
-		//$(this).addClass("subhover"); //On hover over, add class "subhover"
-	}, function(){	
-		//$(this).removeClass("subhover"); //On hover out, remove class "subhover"
-		$(this).find("ul.dropdown-menu").slideUp('fast'); //When the mouse hovers out of the subnav, move it back up
-	});
-
-});
-</script>
- --> 
-
 <div class="topbar">
+	<div class="imagebar">
+		<img src="<spring:url value="/resources/images/logo.jpg" htmlEscape="true" />" width="200px">
+	</div>
 	<div class="loginbar">
 		<c:choose>
 	        <c:when test="${empty sessionScope.username}">
-				<a href="<spring:url value="/login" htmlEscape="true" />">login</a>
+				<a href="<spring:url value="/login" htmlEscape="true" />"><button type="button" class="btn btn-link">login</button></a>
 			</c:when>
 	        <c:otherwise>
-				Logged In As : ${sessionScope.username} <a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />">logout</a>
+				Logged In As : ${sessionScope.username} <a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />"><button type="button" class="btn btn-link">logout</button></a>
 			</c:otherwise>
     	</c:choose>
 	</div>
@@ -76,9 +56,9 @@ $(document).ready(function(){
 				class="dropdown-toggle" data-toggle="dropdown">Company<b
 					class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">About Us</a></li>
-					<li><a href="#">Our Vision</a></li>
-					<li><a href="#">What's New</a></li>
+					<li><a href="<spring:url value="/company" htmlEscape="true" />">About Us</a></li>
+					<li><a href="<spring:url value="/company/vision" htmlEscape="true" />">Our Vision</a></li>
+					<li><a href="<spring:url value="/company/news" htmlEscape="true" />">What's New</a></li>
 				</ul></li>			
 			<li class="dropdown">
 				<a href="<spring:url value="/register" htmlEscape="true" />" class="dropdown-toggle" data-toggle="dropdown">Membership<b
@@ -87,7 +67,9 @@ $(document).ready(function(){
 					<li><a
 						href="<spring:url value="/register" htmlEscape="true" />"
 						title="Registration">Registration</a></li>
-					<li><a href="#" title="My Account">My Account</a></li>
+					<li><a
+						href="<spring:url value="/myAccount" htmlEscape="true" />"
+						title="My Account">My Account</a></li>
 					<li><a
 						href="<spring:url value="/cancelMemberShip" htmlEscape="true" />"
 						title="Cancellation">Cancel Membership</a></li>
@@ -97,8 +79,8 @@ $(document).ready(function(){
 				class="dropdown-toggle" data-toggle="dropdown">Contact Us<b
 					class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#" title="Store Location">Store Location</a></li>
-					<li><a href="#" title="Q & A">Q And A</a></li>
+					<li><a href="<spring:url value="/company/location" htmlEscape="true" />">Store Location</a></li>
+					<li><a href="<spring:url value="/company/contactUs" htmlEscape="true" />">Contact Us</a></li>
 				</ul></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

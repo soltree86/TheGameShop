@@ -11,6 +11,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/bodyHeader.jsp" />
+		<div class="content">
 		<h4 class="text-danger">Message:${message}</h4>
 		<h3>Product Detail</h3>
 		<table>
@@ -49,6 +50,7 @@
 			</tr>
 
 		</table>
+		</div>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
 </body>
