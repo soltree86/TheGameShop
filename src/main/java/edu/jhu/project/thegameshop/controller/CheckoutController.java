@@ -5,6 +5,8 @@ import java.security.Principal;
 import java.util.Date;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,7 @@ public class CheckoutController {
 	
 	@Transactional(rollbackFor=Exception.class)
 	@RequestMapping(value="/confirm", method = RequestMethod.POST)
-	public String confirmation(@Valid CheckOutDTO checkOutDTO, BindingResult result, Model m, Principal principal) throws MessagingException {
+	public String confirmation(@Valid CheckOutDTO checkOutDTO, BindingResult result, Model m, Principal principal, HttpServletRequest request) throws MessagingException {
 		if (result.hasErrors()) {
 			m.addAttribute("message","Invalid Input");
 			return "checkout/checkout";
@@ -102,6 +104,8 @@ public class CheckoutController {
 		
 		//remove the cart from the session
 		cart = new Cart();
+		HttpSession session = request.getSession();
+		session.setAttribute("cart", new Cart());
 		return "checkout/confirmation";
 	}
 	

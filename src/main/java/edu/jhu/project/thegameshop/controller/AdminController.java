@@ -154,7 +154,7 @@ public class AdminController{
 		productTypeService.createList(ptList);
 		Product updated = productService.findById(product.getProductId());
 		m.addAttribute("product", updated);
-		m.addAttribute("message", "Product " + product.getName() + " is successfully added.");
+		m.addAttribute("message", "Product " + product.getName() + " is successfully updated.");
 		return "admin/productDetail";
 	}
 	
